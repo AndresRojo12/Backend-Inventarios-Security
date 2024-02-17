@@ -56,7 +56,7 @@ const createLogin= async(req=request,
             
         } catch (error) {
             return res.status(500).json({
-                msg:'Error general'+ e
+                msg:'Error general'+ error
             })
         }
 }
