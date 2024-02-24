@@ -7,8 +7,9 @@
       <v-toolbar-title>Inicio</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn variant="text" @click="redirectRegister">Registrarse</v-btn>
         <v-btn variant="text" @click="redirectLogin">Iniciar sesión</v-btn>
+        <v-btn variant="text" @click="redirectRegister">Registrar</v-btn>
+
       </v-toolbar-items>
     </v-toolbar>
       <v-section>
@@ -18,15 +19,10 @@
               </h1>
           </div>
           <div class="principal">
-              <img class="uno" src="" alt="">
-              <img class="dos" src="" alt="">
-              <img class="tres" src="" alt="">
-              <img class="cuatro" src="" alt="">
-              <img class="cinco" src="" alt="">
-              <img class="seis" src="" alt="">
           </div>
-      </v-section>
-      <v-footer style="margin-top:30px ;" color="#29282f">Inventarios — 2024, LLC</v-footer>
+        </v-section>
+        <v-footer style="margin-top:30px ;" color="#29282f">Inventarios — 2024, LLC</v-footer>
+
   </template>
   
   <script setup>
@@ -35,11 +31,11 @@
       const router = useRouter();
   
       const redirectRegister = () => {
-      router.push('/usuario/create')
+      router.push('/register')
     }
   
       const redirectLogin = () => {
-      router.push('/usuario/login')
+      router.push('/login')
     }
   
   </script>

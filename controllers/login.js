@@ -1,7 +1,7 @@
 const Usuario=require('../models/Users')
 const {request,response}=require('express')
 const {validationResult, check}=require('express-validator');
-const Users = require('../models/Users');
+//const Users = require('../models/Users');
 const bycript=require('bcryptjs');
 const {generarJwt}=require('../helpers/jwt');
 

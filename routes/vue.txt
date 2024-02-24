@@ -1,0 +1,10 @@
+vue
+gestion de estados globales
+    vuex: se trabajan los store de almacenamiento
+        trabaja con option api 
+        unico store para componenentes
+        ofrece modulos, estructuracion
+    pinia: tambien lo mismo que vuex
+        pinia traba con compisition api
+            modularizar store, contiene varios store, utilizando el store de seleccion que se desee
+            nivel de rendimiento 

@@ -5,9 +5,10 @@ const cors= require('cors')
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-app.use(cors({
-    origin:'*'
-}))
+app.use(cors());
+
+//app.options('*', cors()); // Habilita CORS para todas las rutas
+
 const tipoEquipo=require('./routes/TipoEquipo.route')
 const estadoEquipo=require('./routes/EstadoEquipo.route')
 const usuario=require('./routes/Usuario.route')
