@@ -93,11 +93,12 @@ const useAuth = defineStore("auth", {
         return false;
       }
     },
+    
 
     logout() {
       this.acces_token = null;
       this.user = null; // Limpia la información del usuario al cerrar sesión
-    }
+    },
   },
 });
 

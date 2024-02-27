@@ -1,5 +1,24 @@
 <template>
-  <v-card class="mx-auto" max-width="344" title="User Registration">
+  <v-toolbar color="#29282f">
+    <template v-slot:prepend>
+      <div class="text-h5">Inventarios</div>
+    </template>
+    <v-divider class="ms-3" inset vertical></v-divider>
+    <v-btn @click="redirectHome">Inicio</v-btn>
+    <v-spacer></v-spacer>
+  </v-toolbar>
+  <v-card
+    class="mx-auto"
+    max-width="344"
+    title="User Registration"
+    style="
+      margin-top: 100px;
+      border-style: groove;
+      border-radius: 20px;
+      text-align: center;
+      border-width: 5px;
+    "
+  >
     <v-container>
       <v-text-field
         v-model="nombre"
@@ -33,7 +52,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
 
-      <v-btn color="success" @click.prevent="registerUser">
+      <v-btn color="#2196f3" @click.prevent="registerUser">
         Complete Registration
 
         <v-icon icon="mdi-chevron-right" end></v-icon>
@@ -49,7 +68,6 @@
 import { ref } from "vue";
 import useAuth from "@/store/auth";
 import router from "@/router";
-
 
 const nombre = ref("");
 const email = ref("");
@@ -77,13 +95,15 @@ const registerUser = async () => {
     if (response === false) {
       feedback.value = "Register error";
     } else {
-      feedback.value = "Registration successful!";
-      router.push({ name: "register_succes" });
+      alert(feedback.value = "Registration successful!");
+      router.push({ name: "login" });
     }
   } else {
     feedback.value = "You don't have permission to register users.";
   }
 };
 
-
+const redirectHome = () => {
+  router.push({name:"user_login"})
+}
 </script>

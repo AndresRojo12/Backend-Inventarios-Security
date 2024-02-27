@@ -1,10 +1,10 @@
 <template>
     <v-toolbar color="#29282f">
       <template v-slot:prepend>
-        <div class="text-h5">Inventarios</div>
+        <div class="text-h5">INVENTARIOS</div>
       </template>
       <v-divider class="ms-3" inset vertical></v-divider>
-      <v-toolbar-title>Inicio</v-toolbar-title>
+      <v-toolbar-title>INICIO</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn variant="text" @click="redirectLogin">Iniciar sesión</v-btn>

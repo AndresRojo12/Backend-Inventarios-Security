@@ -38,15 +38,24 @@
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="togglePasswordVisibility"
+        @keyup.enter="loginUser"
       ></v-text-field>
       <v-btn
         block
         class="mb-8"
         color="blue"
         size="large"
-        variant="tonal" @click="loginUser" 
+        variant="tonal" @click.prevent="loginUser" 
       >
         Log In
+
+        <template v-if="loading">
+        <v-progress-circular
+          indeterminate
+          size="20"
+          class="ml-2"
+        ></v-progress-circular>
+      </template>
       </v-btn>
       {{ feedback }}
 
@@ -66,13 +75,14 @@ const email = ref("");
 const password = ref("");
 const feedback = ref("")
 const visible = ref(false);
-//const loading = ref(false);
+const loading = ref(false);
 const route = useRouter()
 //const error = ref("");
 
 const loginUser = async () => {
-  
+  loading.value = true;
   const response = await store.Login(email.value, password.value)
+  loading.value = false;
   if( response == false) {
     feedback.value = "Login error"
   }else{
