@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
-import RegisterSucessView from '../views/RegisterSuccesView.vue'
+import LoginView from '../views/login/LoginView.vue'
+import RegisterView from '../views/register/RegisterView.vue'
+import RegisterSucessView from '../views/register/RegisterSuccesView.vue'
+import UserLoginView from '../views/perfil/UserLoginView.vue'
 
 import useAuth from '@/store/auth'
 
@@ -16,9 +17,12 @@ const routes = [
     }
   },
   {
-    path: '/home',
-    name: 'home',
-    component: HomeView
+    path: '/user_login',
+    name: 'user_login',
+    component: UserLoginView,
+    meta: {
+      reqAut: true
+    }
   },
   {
     path: '/login',
@@ -33,7 +37,8 @@ const routes = [
     name: 'register',
     component: RegisterView,
     meta: {
-      reqAut: true
+      reqAut: true,
+      roles: ['ADMIN']
     }
   },
 
