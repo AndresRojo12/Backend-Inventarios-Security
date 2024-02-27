@@ -51,7 +51,7 @@ const createUsuario = async (req = request, res = response) => {
     return res.status(201).json(usuario);
   } catch (error) {
     return res.status(500).json({
-      msg: "Error general" + e,
+      msg: "Error general" + error,
     });
   }
 };
