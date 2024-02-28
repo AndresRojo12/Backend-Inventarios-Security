@@ -8,12 +8,12 @@
       <v-btn @click="redirectHome">Inicio</v-btn>
       <v-spacer></v-spacer>
     </v-toolbar>
-    <h1>Login</h1>
     <v-card
       class="mx-auto pa-12 pb-8"
       elevation="8"
       max-width="338"
       rounded="lg"
+      style="margin-top:100px;"
     >
       <div class="text-subtitle-1 text-medium-emphasis">Account</div>
 

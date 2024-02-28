@@ -12,12 +12,11 @@
 
       </v-toolbar-items>
     </v-toolbar>
-      <v-section>
-          <div>
-              <h1>
-                  Interes
-              </h1>
-          </div>
+   
+    <v-section>
+      
+      <v-parallax src="https://th.bing.com/th/id/R.b5b5cfe5f74d0a43d8330fe9f9507416?rik=NfvYAtRHT59evw&riu=http%3a%2f%2fst.gde-fon.com%2fwallpapers_original%2f577175_internet_sotsialnyie-seti_hi-tech_3894x2865_www.Gde-Fon.com.jpg&ehk=rzuxlWPwCvCynpuUHiykU1vI7heTOC4YsSLd09zFUMk%3d&risl=&pid=ImgRaw&r=0"></v-parallax>
+
           <div class="principal">
           </div>
         </v-section>
@@ -39,33 +38,4 @@
     }
   
   </script>
-  
-  <style>
-      .uno, .dos, .tres, .cuatro, .cinco, .seis{
-          justify-content: center;
-          flex-direction: column;
-          width:400px;
-          height: 236px;
-      }
-  
-      .uno,.dos, .tres{
-          margin-left: 30px;
-      }
-  
-      .cuatro, .cinco, .seis{
-          margin-left: 30px;
-          margin-top: 30px;
-      }
-  
-      .principal {
-          margin-right: 30px;
-          margin-top: 30px;
-      }
-      
-      section, h1 {
-          text-align:center; 
-          margin-top: 80px;
-      }
-  
-  </style>
   
