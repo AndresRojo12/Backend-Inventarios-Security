@@ -4,7 +4,7 @@ const useAuth = defineStore("auth", {
   state: () => {
     return {
       acces_token: null,
-      user: null, // Agrega esta propiedad para almacenar la información del usuario
+      user: null,
       baseURL: "http://localhost:3001/api",
     };
   },
@@ -94,10 +94,40 @@ const useAuth = defineStore("auth", {
       }
     },
     
+    async getUser() {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+
+      
+      const uri = `${this.baseURL}/usuarios`
+
+      try {
+        const respo = await fetch(uri, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "Application/json",
+            "Authorization": this.acces_token
+          }
+          
+        });
+
+        const users = await respo.json();
+        console.log("Respuesta del backend:", users);
+
+        return users
+      } catch (error) {
+        console.error("Error en la solicitud de get:", error);
+        return null;
+      }
+    },
+    
 
     logout() {
       this.acces_token = null;
-      this.user = null; // Limpia la información del usuario al cerrar sesión
+      this.user = null; 
     },
   },
 });
