@@ -1,6 +1,7 @@
 const TipoEquipo = require("../models/Tipo_equipo");
 const { request, response } = require("express");
 
+
 //crear
 const createTipoEquipo = async (req = request, res = response) => {
   try {

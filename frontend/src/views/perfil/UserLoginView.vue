@@ -19,8 +19,18 @@
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-account"
-        title="Registar Usuarios"
-        @click.prevent="regis"
+        title="Registrar Usuarios"
+        @click.prevent="registro"
+      ></v-list-item>
+      <v-list-item
+        prepend-icon="mdi-desktop-classic"
+        title="Equipos"
+        @click.prevent="equipos"
+      ></v-list-item>
+      <v-list-item
+        prepend-icon="mdi-package-variant"
+        title="Inventarios"
+        @click.prevent="inventarios"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-logout"
@@ -81,10 +91,17 @@ const logout = () => {
   router.push({ name: "login" });
 };
 
-const regis = () => {
+const registro = () => {
   router.push({ name: "register" });
 };
 
+const equipos = () => {
+  router.push({name: 'tipo_equipos'});
+} 
+
+const inventarios = () => {
+  router.push({name: 'inventarios'})
+}
 const getUserInformation = async () => {
   const userList = await store.getUser();
   if (userList) {

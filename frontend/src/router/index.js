@@ -4,8 +4,11 @@ import LoginView from '../views/login/LoginView.vue'
 import RegisterView from '../views/register/RegisterView.vue'
 import RegisterSucessView from '../views/register/RegisterSuccesView.vue'
 import UserLoginView from '../views/perfil/UserLoginView.vue'
+import TipoEquipoView from '../views/equipos/TipoEquiposView.vue'
+import InventariosEquiposView from '../views/inventari/InventariosEquiposView.vue'
 
 import useAuth from '@/store/auth'
+
 
 const routes = [
   {
@@ -49,6 +52,24 @@ const routes = [
     meta: {
       reqAut: true
     }
+  },
+
+  {
+    path: '/tipo_equipos',
+    name: 'tipo_equipos',
+    component: TipoEquipoView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/inventarios',
+    name: 'inventarios',
+    component: InventariosEquiposView,
+    meta: {
+      reqAut: true
+    }
   }
   
 ]
@@ -60,6 +81,7 @@ const router = createRouter({
 
 router.beforeEach((to , from , next)=>{
   const auth = useAuth()
+  
   
 
   if(to.meta.reqAut && auth.acces_token === null) {

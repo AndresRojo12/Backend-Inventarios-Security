@@ -5,6 +5,7 @@ const useAuth = defineStore("auth", {
     return {
       acces_token: null,
       user: null,
+      equipo: null,
       baseURL: "http://localhost:3001/api",
     };
   },
@@ -124,6 +125,61 @@ const useAuth = defineStore("auth", {
       }
     },
     
+    async getTipoEquipo() {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+      const uri = `${this.baseURL}/tiposequipos?estado=true`
+
+      try {
+        const respo = await fetch(uri, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "Application/json",
+            "Authorization": this.acces_token
+          }
+          
+        });
+
+        const tEquipos = await respo.json();
+        console.log("Respuesta del backend:", tEquipos);
+
+        return tEquipos
+      } catch (error) {
+        console.error("Error en la solicitud de get:", error);
+        return null;
+      }
+    },
+
+    async getInventarios() {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+      const uri = `${this.baseURL}/inventarios?estado=false`
+
+      try {
+        const respo = await fetch(uri, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "Application/json",
+            "Authorization": this.acces_token
+          }
+          
+        });
+
+        const tEquipos = await respo.json();
+        console.log("Respuesta del backend:", tEquipos);
+
+        return tEquipos
+      } catch (error) {
+        console.error("Error en la solicitud de get:", error);
+        return null;
+      }
+    },
 
     logout() {
       this.acces_token = null;
