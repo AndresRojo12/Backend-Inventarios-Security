@@ -1111,6 +1111,11 @@
   "resolved" "https://registry.npmjs.org/@mdi/font/-/font-5.9.55.tgz"
   "version" "5.9.55"
 
+"@mdi/js@^7.4.47":
+  "integrity" "sha512-KPnNOtm5i2pMabqZxpUz7iQf+mfrYZyKCZ8QNz85czgEt7cuHcGorWfdzUMWYA0SD+a6Hn4FmJ+YhzzzjkTZrQ=="
+  "resolved" "https://registry.npmjs.org/@mdi/js/-/js-7.4.47.tgz"
+  "version" "7.4.47"
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   "integrity" "sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg=="
   "resolved" "https://registry.npmjs.org/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz"
