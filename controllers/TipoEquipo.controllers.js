@@ -21,7 +21,7 @@ const createTipoEquipo = async (req = request, res = response) => {
     return res.status(201).json(tipoEquipo);
   } catch (error) {
     return res.status(500).json({
-      msg: "Error general" + e,
+      msg: "Error general" + error,
     });
   }
 };
