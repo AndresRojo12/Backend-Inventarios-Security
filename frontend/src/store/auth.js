@@ -124,6 +124,49 @@ const useAuth = defineStore("auth", {
         return null;
       }
     },
+
+    async RegisterEquipo(nombre) {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+
+      console.log("Token enviado desde el frontend para el registro:", this.acces_token);
+
+      const uri = `${this.baseURL}/tiposequipos`
+
+      try {
+        const respo = await fetch(uri, {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "Application/json",
+            "Authorization": this.acces_token
+          },
+          body: JSON.stringify({
+            'nombre': nombre
+          })
+        });
+
+        if (!respo.ok) {
+          console.error("Error en la solicitud de registro. Código de estado:", respo.status);
+          return false;
+        }
+
+        const res = await respo.json();
+        console.log("Respuesta del backend:", res);
+
+        if (!res) {
+          console.error("Error en la solicitud de registro: Respuesta vacía");
+          return false;
+        } else {
+          return true;
+        }
+      } catch (error) {
+        console.error("Error en la solicitud de registro:", error);
+        return false;
+      }
+    },
     
     async getTipoEquipo() {
       if (!this.acces_token) {
