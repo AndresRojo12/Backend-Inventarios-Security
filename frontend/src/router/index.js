@@ -6,6 +6,7 @@ import RegisterSucessView from '../views/register/RegisterSuccesView.vue'
 import UserLoginView from '../views/perfil/UserLoginView.vue'
 import TipoEquipoView from '../views/equipos/TipoEquiposView.vue'
 import InventariosEquiposView from '../views/inventari/InventariosEquiposView.vue'
+import RegistrarEquipoview from '../views/equipos/RegistrarEquiposView.vue'
 
 import useAuth from '@/store/auth'
 
@@ -67,6 +68,15 @@ const routes = [
     path: '/inventarios',
     name: 'inventarios',
     component: InventariosEquiposView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/registrar-equipo',
+    name: 'registrar-equipo',
+    component: RegistrarEquipoview,
     meta: {
       reqAut: true
     }
