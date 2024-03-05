@@ -44,8 +44,7 @@
     
       <v-card-title style="text-align:center ;">
         Usuarios
-      </v-card-title>
-    
+      </v-card-title> 
     <v-table fixed-header height="400px"
       margin-top="50px">
       <thead>
