@@ -10,15 +10,20 @@ const TipoEquipo = require('../models/Tipo_equipo')
 const createInventario= async (req = request, 
     res = response) => {
     try{
+        console.log("datos recibidos", req.body)
         const data = req.body
-        console.log(data)
+        console.log("datos recibidos",data)
+        console.log('ID de usuario:', data.usuario._id);
         const { usuario, marca, estado, tipoEquipo } = data;
         //validando usuario
+        console.log("Validando usuario...");
         const usuarioDB = Usuario.findOne({
             _id: usuario._id,
             estado: true
-        })// select * from usuarios where _id=? and estado=true
+        });
+        // select * from usuarios where _id=? and estado=true
         if(!usuarioDB){
+            console.log("Usuario encontrado en la base de datos:");
             return res.status(400).json({msg: 'usuario invalido'})
         }
         // validando marca
@@ -46,13 +51,15 @@ const createInventario= async (req = request,
            return res.status(400).json({msg: 'estado invalido'})
         }      
         const inventario = new Inventario(data)
-
+        
         await inventario.save()
+
+        console.log("Inventario creado exitosamente:", inventario);
         
         return res.status(201).json(inventario)
-    }catch(e){
+    }catch(error){
         return res.status(500).json({
-            msg: 'Error general ' + e
+            msg: 'Error general ' + error
         })
     }
 }
