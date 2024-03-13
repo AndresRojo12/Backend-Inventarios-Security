@@ -1,6 +1,6 @@
 <template>
   <div style="text-align: center; margin-top: 30px">
-    <h1>Crear inventario</h1>
+    <h1>Crear Inventario</h1>
   </div>
   <v-sheet class="mx-auto" width="300">
     <v-form style="margin-top: 50px">
