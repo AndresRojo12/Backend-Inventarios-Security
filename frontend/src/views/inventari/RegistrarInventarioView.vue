@@ -115,7 +115,7 @@ const obtenerMarcas = async () => {
 
 const obtenerEstados = async () => {
   try {
-    const estad = await store.getEstado();
+    const estad = await store.getEstados();
 
     if (estad) {
       estados.value = estad.map((estadosEquipos)=>{
