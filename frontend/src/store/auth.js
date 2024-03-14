@@ -122,6 +122,54 @@ const useAuth = defineStore("auth", {
       }
     },
     
+    async RegisterMarca(nombre) {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+      
+      console.log(
+        "Token enviado desde el frontend para el registro:",
+        this.acces_token
+        );
+        
+        const uri = `${this.baseURL}/marcas`;
+        
+        try {
+          const respo = await fetch(uri, {
+            method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "Application/json",
+            Authorization: this.acces_token,
+          },
+          body: JSON.stringify({
+            nombre: nombre,
+          }),
+        });
+        
+        if (!respo.ok) {
+          console.error(
+            "Error en la solicitud de registro. Código de estado:",
+            respo.status
+            );
+            return false;
+          }
+          
+          const res = await respo.json();
+          console.log("Respuesta del backend:", res);
+          
+          if (!res) {
+            console.error("Error en la solicitud de registro: Respuesta vacía");
+            return false;
+          } else {
+            return true;
+          }
+        } catch (error) {
+          console.error("Error en la solicitud de registro:", error);
+          return false;
+        }
+      },
     async getMarca() {
       if (!this.acces_token) {
         console.error("Usuario no autorizado. Inicia sesión primero.");
@@ -148,32 +196,6 @@ const useAuth = defineStore("auth", {
       }
     },
 
-    async getEstado() {
-      if (!this.acces_token) {
-        console.error("Usuario no autorizado. Inicia sesión primero.");
-        return false;
-      }
-      const uri = `${this.baseURL}/estadosequipos?estado=true`;
-      try {
-        const respo = await fetch(uri, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "Application/json",
-            Authorization: this.acces_token,
-          },
-        });
-        
-        const estados = await respo.json();
-        console.log("Respuesta del backend:", estados);
-        
-        return estados;
-      } catch (error) {
-        console.error("Error en la solicitud de get:", error);
-        return null;
-      }
-    },
-    
     async RegisterEquipo(nombre) {
       if (!this.acces_token) {
         console.error("Usuario no autorizado. Inicia sesión primero.");
@@ -249,6 +271,82 @@ const useAuth = defineStore("auth", {
         return null;
       }
     },
+
+    async RegisterEstado(nombre) {
+      if (!this.acces_token) {
+        console.error("Usuario no autorizado. Inicia sesión primero.");
+        return false;
+      }
+      
+      console.log(
+        "Token enviado desde el frontend para el registro:",
+        this.acces_token
+        );
+        
+        const uri = `${this.baseURL}/estadosequipos`;
+        
+        try {
+          const respo = await fetch(uri, {
+            method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "Application/json",
+            Authorization: this.acces_token,
+          },
+          body: JSON.stringify({
+            nombre: nombre,
+          }),
+        });
+        
+        if (!respo.ok) {
+          console.error(
+            "Error en la solicitud de registro. Código de estado:",
+            respo.status
+            );
+            return false;
+          }
+          
+          const res = await respo.json();
+          console.log("Respuesta del backend:", res);
+          
+          if (!res) {
+            console.error("Error en la solicitud de registro: Respuesta vacía");
+            return false;
+          } else {
+            return true;
+          }
+        } catch (error) {
+          console.error("Error en la solicitud de registro:", error);
+          return false;
+        }
+      },
+
+    async getEstados() {
+      if (!this.acces_token) {
+      console.error("Usuario no autorizado. Inicia sesión primero.");
+      return false;
+    }
+    const uri = `${this.baseURL}/estadosequipos?estado=true`;
+    
+    try {
+      const respo = await fetch(uri, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "Application/json",
+          Authorization: this.acces_token,
+        },
+      });
+      
+      const estadoEquipos = await respo.json();
+      console.log("Respuesta del backend:", estadoEquipos);
+      
+      return estadoEquipos;
+    } catch (error) {
+      console.error("Error en la solicitud de get:", error);
+      return null;
+    }
+  },
     
     async RegisterInventario(serial, Modelo, Descripción, FotoEquipo, Color, FechaCompra, precio, usuario, marca, estado, tipoEquipo) {
       if (!this.acces_token) {
