@@ -8,7 +8,10 @@ import TipoEquipoView from '../views/equipos/TipoEquiposView.vue'
 import InventariosEquiposView from '../views/inventari/InventariosEquiposView.vue'
 import RegistrarEquipoview from '../views/equipos/RegistrarEquiposView.vue'
 import RegistrarInventario from '../views/inventari/RegistrarInventarioView.vue'
-
+import EstadosEquiposView from '../views/estados/EstadosEquiposView.vue'
+import RegistrarEstadosView from '../views/estados/RegistrarEstadoView.vue'
+import MarcasEquiposView from '../views/marcas/MarcasEquiposView.vue'
+import RegistrarMarcasView from '../views/marcas/RegistrarMarcasView.vue'
 import useAuth from '@/store/auth'
 
 
@@ -60,6 +63,42 @@ const routes = [
     path: '/tipo_equipos',
     name: 'tipo_equipos',
     component: TipoEquipoView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/registrar_estados',
+    name: 'registrar_estados',
+    component: RegistrarEstadosView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/registrar_marcas',
+    name: 'registrar_marcas',
+    component: RegistrarMarcasView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/marcas',
+    name: 'marcas',
+    component: MarcasEquiposView,
+    meta: {
+      reqAut: true
+    }
+  },
+
+  {
+    path: '/estados',
+    name: 'estados',
+    component: EstadosEquiposView,
     meta: {
       reqAut: true
     }
