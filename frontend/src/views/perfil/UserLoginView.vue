@@ -28,6 +28,16 @@
         @click.prevent="equipos"
       ></v-list-item>
       <v-list-item
+        prepend-icon="mdi-truck"
+        title="Estados"
+        @click.prevent="estados"
+      ></v-list-item>
+      <v-list-item
+        prepend-icon="mdi-pencil"
+        title="Marcas"
+        @click.prevent="marcas"
+      ></v-list-item>
+      <v-list-item
         prepend-icon="mdi-package-variant"
         title="Inventarios"
         @click.prevent="inventarios"
@@ -97,6 +107,14 @@ const registro = () => {
 const equipos = () => {
   router.push({name: 'tipo_equipos'});
 } 
+
+const estados = () =>{
+  router.push({name: 'estados'})
+}
+
+const marcas = () => {
+  router.push({name: 'marcas'})
+}
 
 const inventarios = () => {
   router.push({name: 'inventarios'})
