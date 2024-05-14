@@ -82,7 +82,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="inventario in inventarios" :key="inventario.id">
+        <tr v-for="inventario in inventarios" :key="inventario._id">
           <td>{{ inventario.serial }}</td>
           <td>{{ inventario.Modelo }}</td>
           <td>{{ inventario.Descripción }}</td>
@@ -96,7 +96,7 @@
           <td>{{ inventario.Color }}</td>
           <td>{{ getFormattedDate(inventario.FechaCompra) }}</td>
           <td>{{ inventario.precio }}</td>
-          <td>{{ inventario.usuario.nombre }}</td>
+          <td>{{ inventario.usuario.nombre}}</td>
           <td>{{ inventario.marca.nombre }}</td>
           <td>{{ inventario.estado.nombre }}</td>
           <td>{{ inventario.tipoEquipo.nombre }}</td>
@@ -111,14 +111,15 @@
 import useAuth from "@/store/auth";
 import router from "@/router";
 import { ref, onMounted } from "vue";
-import { format } from "date-fns";
+import moment  from "moment";
+
 
 const inventarios = ref([]);
 const store = useAuth();
 const user = useAuth().user;
 
 const getFormattedDate = (date) => {
-  return format(new Date(date), "yyyy-MM-dd HH:mm");
+  return moment(date).format("YYYY/MM/DD");
 };
 
 const redirectHome = () => {

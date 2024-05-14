@@ -450,10 +450,10 @@ const useAuth = defineStore("auth", {
           },
         });
 
-        const tEquipos = await respo.json();
-        console.log("Respuesta del backend:", tEquipos);
+        const inventarios = await respo.json();
+        console.log("Respuesta del backend:", inventarios);
 
-        return tEquipos;
+        return inventarios//
       } catch (error) {
         console.error("Error en la solicitud de get:", error);
         return null;

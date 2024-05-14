@@ -33,17 +33,23 @@
       <v-autocomplete 
         v-model="marca"
         :items="mars"
-        label="Marca"> 
+        label="Marca"
+        item-value="nombre"
+        > 
       </v-autocomplete>
       <v-autocomplete
         v-model="estado" 
         :items="estados"
-        label="Estado"> 
+        label="Estado"
+        item-value="nombre"
+        > 
       </v-autocomplete>
       <v-autocomplete 
         v-model="tipoEquipo" 
         :items="equipos"
-        label="TipoEquipo"> 
+        label="TipoEquipo"
+        item-value="nombre"
+        > 
       </v-autocomplete>
       <v-btn color="#2196f3"  @click.prevent="registrarInventario"
         >Registrar</v-btn
@@ -87,7 +93,7 @@ const obtenerUsuarios = async () => {
 
     if (users) {
       usuarios.value = users.map((user)=>{
-        return user.nombre
+        return user._id
       })
     } else {
       console.error("Error al obtener la lista de usuarios desde el store.");
@@ -103,7 +109,7 @@ const obtenerMarcas = async () => {
 
     if (marcas) {
       mars.value = marcas.map((mar)=>{
-        return mar.nombre
+        return mar._id
       })
     } else {
       console.error("Error al obtener la lista de marcas desde el store.");
@@ -119,7 +125,7 @@ const obtenerEstados = async () => {
 
     if (estad) {
       estados.value = estad.map((estadosEquipos)=>{
-        return estadosEquipos.nombre
+        return estadosEquipos._id
       })
     } else {
       console.error("Error al obtener la lista de estados desde el store.");
@@ -135,7 +141,7 @@ const obtenerEquipos = async () => {
 
     if (equiposs) {
        equipos.value = equiposs.map((eq)=>{
-        return eq.nombre
+        return eq._id
       })
       
       
