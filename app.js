@@ -1,7 +1,7 @@
 const express=require('express')
-const app =express();
 const cors= require('cors')
 
+const app =express();
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
@@ -21,6 +21,10 @@ app.use('/api/usuarios',usuario)
 app.use('/api/marcas',marcas)
 app.use('/api/inventarios',inventarios)
 app.use('/api/logins',login)
+
+app.get('/', (req, res) => {
+    res.send('Bienvenido a la API de Inventarios');
+});
 
 
 module.exports=app

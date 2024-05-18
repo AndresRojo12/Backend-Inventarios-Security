@@ -1,9 +1,21 @@
-const app= require('./app')
-const{conection}= require('./databas/configuration')
-// const dotenv=require('dotenv').config()
-// const conex=conection()
+require('dotenv').config();
+const app = require('./app');
+const { connection } = require('./databas/configuration');
 
-// Resto de la configuración del servidor...
+const startServer = async () => {
+  try {
+    // Conectar a la base de datos
+    await connection();
 
-const port = process.env.PORT;
-app.listen(port, () => console.log(`Escuchando en puerto ${port}...`));
+    // Iniciar el servidor
+    const port = process.env.PORT || 3001;
+    app.listen(port, () => {
+      console.log(`Escuchando en puerto ${port}...`);
+    });
+  } catch (error) {
+    console.error('Error al iniciar el servidor:', error);
+    process.exit(1);
+  }
+};
+
+startServer();
