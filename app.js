@@ -28,7 +28,7 @@ const vueDistPath = path.join(__dirname,'/frontend/dist');
 app.use(express.static(vueDistPath));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(vueDistPath, 'index.html'));
+    res.sendFile(path.join(vueDistPath, '/frontend/dist/index.html'));
   });
 
 app.get('/', (req, res) => {
