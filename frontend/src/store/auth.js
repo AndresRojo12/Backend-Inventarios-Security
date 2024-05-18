@@ -5,7 +5,7 @@ const useAuth = defineStore("auth", {
       acces_token: null,
       user: null,
       equipo: null,
-      baseURL: "http://localhost:3001/api",
+      baseURL: "https://inventarios-5z1o.onrender.com",
     };
   },
   
