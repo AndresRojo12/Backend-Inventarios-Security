@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use(cors());
 
-//app.options('*', cors()); // Habilita CORS para todas las rutas
+app.options('*', cors()); // Habilita CORS para todas las rutas
 
 const tipoEquipo=require('./routes/TipoEquipo.route')
 const estadoEquipo=require('./routes/EstadoEquipo.route')
