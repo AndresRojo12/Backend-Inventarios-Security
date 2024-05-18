@@ -22,6 +22,13 @@ app.use('/api/marcas',marcas)
 app.use('/api/inventarios',inventarios)
 app.use('/api/logins',login)
 
+const vueDistPath = path.join(__dirname, 'dist');
+app.use(express.static(vueDistPath));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(vueDistPath, 'index.html'));
+  });
+
 app.get('/', (req, res) => {
     res.send('Bienvenido a la API de Inventarios');
 });
