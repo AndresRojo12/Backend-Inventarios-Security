@@ -22,7 +22,7 @@ app.use('/api/marcas',marcas)
 app.use('/api/inventarios',inventarios)
 app.use('/api/logins',login)
 
-const vueDistPath = path.join(__dirname, 'dist');
+const vueDistPath = path.join(this.path, 'dist');
 app.use(express.static(vueDistPath));
 
 app.get('*', (req, res) => {
