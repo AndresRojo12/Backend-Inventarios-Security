@@ -1,7 +1,7 @@
 const app= require('./app')
 const{conection}= require('./databas/configuration')
-const dotenv=require('dotenv').config()
-const conex=conection()
+// const dotenv=require('dotenv').config()
+// const conex=conection()
 
 // Resto de la configuración del servidor...
 
